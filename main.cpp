@@ -1,6 +1,7 @@
 #include <iostream>
 #include "op4.cpp"
 #include "op2.cpp"
+#include <string>
 using namespace std;
 
 
@@ -16,9 +17,9 @@ int main()
 {
 
     //se declaran las variables que se van a utilizar
-    int opcion, coeficienteSillaHoras, coeficienteMesaHoras, coeficiente; 
+    int opcion, coeficienteSillaHoras, coeficienteMesaHoras, Terminoindependiente; 
     double precioDeVentaSilla, precioDeVentaMesa;
-
+    string Operador, OpcionRepetir;
 
     do
     {
@@ -58,7 +59,19 @@ int main()
         break;
         case 2:
         {
-            ingresarRestricciones(coeficienteMesaHoras, coeficienteSillaHoras);
+           do
+           {
+            ingresarRestricciones(coeficienteMesaHoras, coeficienteSillaHoras, Operador, Terminoindependiente);
+            cout<<"\nDesea Ingresar otra innecuacion?(S/N)";
+            cin>>OpcionRepetir; 
+            do{
+           if (OpcionRepetir != "S" && OpcionRepetir != "s" && OpcionRepetir != "N" && OpcionRepetir != "n") 
+            cout << "Ingrese una opción válida (S/N): ";
+            cin >> OpcionRepetir;
+            }while (OpcionRepetir != "S" && OpcionRepetir != "s" && OpcionRepetir != "N" && OpcionRepetir != "n");
+            } while (OpcionRepetir == "S" || OpcionRepetir == "s");
+
+           
         }
         break;
         case 3:
@@ -96,6 +109,12 @@ int main()
             cout << "La opcion debe estar entre 1 y 6" << endl;
         }
         }
+
+    } while (opcion != 6);
+
+    return 0;
+}
+
 
     } while (opcion != 6);
 
