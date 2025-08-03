@@ -63,6 +63,15 @@ int main()
         break;
         case 3:
         {
+             try {
+        cout << "Opción 3: Calcular solución óptima (Z = fx1*x1 + fx2*x2)\n";
+        cargarDatosPrueba(); // Puedes reemplazar esto con una función de entrada interactiva
+
+        calcularSolucionOptima();
+    } catch (...) {
+        cout << "Se produjo un error durante la ejecución.\n";
+    } 
+    return 0;
         }
         break;
         case 4:
